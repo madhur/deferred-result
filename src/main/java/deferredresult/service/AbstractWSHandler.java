@@ -16,7 +16,7 @@ public class AbstractWSHandler {
 
     @Autowired
     protected AbstractWSHandler() {
-        this.executorService = Executors.newFixedThreadPool(10, new CustomizableThreadFactory(getClass().getSimpleName() + "-"));
+        this.executorService = Executors.newFixedThreadPool(100, new CustomizableThreadFactory(getClass().getSimpleName() + "-"));
     }
 
     protected void handle(Runnable runnable) {

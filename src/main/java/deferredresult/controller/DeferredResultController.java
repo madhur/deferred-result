@@ -22,6 +22,7 @@ public class DeferredResultController {
 
     @GetMapping("/deferred")
     public DeferredResult<ResponseEntity<String>> getDeferredResult() {
+        System.out.println("Received request on: " + Thread.currentThread().getName());
         CompletableFuture<String> completableFuture = deferredResultService.getDelayedResult();
         DeferredResult<ResponseEntity<String>> deferredResult = new DeferredResult<>();
         completableFuture.thenAccept(result -> {
